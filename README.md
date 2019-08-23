@@ -1,5 +1,5 @@
 # TruckSim-Telemetry-Demo
-A demo web app for the  TruckSim-Telemetry module
+A demo app for [TruckSim-Telemetry](https://github.com/kniffen/TruckSim-Telemetry)
 
 ## How to run it
 ```
@@ -9,3 +9,5 @@ npm start
 ```
 
 Open browser at http://localhost:3000/
+
+![screenshot](screenshot.jpg)
