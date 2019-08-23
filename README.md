@@ -4,7 +4,7 @@ A demo app for [TruckSim-Telemetry](https://github.com/kniffen/TruckSim-Telemetr
 ## How to run it
 ```
 cd server
-npm install
+npm install --only=prod
 npm start
 ```
 
