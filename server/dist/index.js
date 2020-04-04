@@ -55,6 +55,9 @@ telemetry.game.on("ferry", function (ferry) {
 telemetry.game.on("train", function (train) {
   return logIt("Train (".concat(train.source.name, " -> ").concat(train.target.name, ")"));
 });
+telemetry.game.on("refuel-payed", function () {
+  return logIt("Refueling payed");
+});
 telemetry.job.on("cancelled", function (data) {
   return logIt("Job cancelled, Penalty: ".concat(currency()).concat(data.penalty.toLocaleString()));
 });
@@ -93,6 +96,9 @@ telemetry.truck.on("park", function (enabled) {
 });
 telemetry.truck.on("damage", function (data) {
   return logIt("Truck damage increased ".concat((100 * data.chassis).toFixed(), "%"));
+});
+telemetry.truck.on("refuel", function (curr, prev) {
+  return logIt("Truck refueled from ".concat(prev.amount, " to ").concat(curr.amount));
 });
 telemetry.trailers.on("coupling", function (id, enabled) {
   return logIt("Trailer #".concat(id + 1, " coupling ").concat(enabled ? "connected" : "disconnected"));

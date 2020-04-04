@@ -8,6 +8,7 @@
         <div><b>Market:</b><span>{{market.name}}</span></div>
         <div><b>Income:</b><span>{{['?', '€', '$'][game.id]}}{{income.toLocaleString()}}</span></div>
         <div><b>Special transport:</b><span>{{isSpecial ? "YES" : "NO"}}</span></div>
+        <div><b>Planned distance:</b><span>{{plannedDistance.km}}km / {{plannedDistance.miles}}Miles</span></div>
       </div>
     </template>
 
@@ -39,7 +40,8 @@
       "destination",
       "source",
       "market",
-      "income"
+      "income",
+      "plannedDistance"
     ],
 
     methods: {

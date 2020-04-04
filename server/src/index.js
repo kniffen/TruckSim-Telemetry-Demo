@@ -30,6 +30,7 @@ telemetry.game.on("fine",         (fine)     => logIt(`${fine.offence.name}, ${c
 telemetry.game.on("tollgate",     (tollgate) => logIt(`Toll paid ${currency()}${tollgate.amount.toLocaleString()}`))
 telemetry.game.on("ferry",        (ferry)    => logIt(`Ferry (${ferry.source.name} -> ${ferry.target.name})`))
 telemetry.game.on("train",        (train)    => logIt(`Train (${train.source.name} -> ${train.target.name})`))
+telemetry.game.on("refuel-payed", ()         => logIt(`Refueling payed`))
 
 telemetry.job.on("cancelled", (data) => logIt(`Job cancelled, Penalty: ${currency()}${data.penalty.toLocaleString()}`))
 telemetry.job.on("delivered", (data) => logIt(`Job delivered, ${currency()}${data.revenue.toLocaleString()} / ${data.earnedXP}XP`))
@@ -45,6 +46,7 @@ telemetry.truck.on("electric",                (enabled)            => logIt(`Tru
 telemetry.truck.on("engine",                  (enabled)            => logIt(`Truck engine ${enabled ? "ON" : "OFF"}`))
 telemetry.truck.on("park",                    (enabled)            => logIt(`Parking brake ${enabled ? "ON" : "OFF"}`))
 telemetry.truck.on("damage",                  (data)               => logIt(`Truck damage increased ${(100 * data.chassis).toFixed()}%`))
+telemetry.truck.on("refuel",                  (curr, prev)         => logIt(`Truck refueled from ${prev.amount} to ${curr.amount}`))
 
 telemetry.trailers.on("coupling", (id, enabled) => logIt(`Trailer #${id+1} coupling ${enabled ? "connected" : "disconnected"}`))
 telemetry.trailers.on("damage",   (id, data)    => logIt(`Trailer #${id+1} damage increased ${(100 * data.chassis).toFixed()}%`))

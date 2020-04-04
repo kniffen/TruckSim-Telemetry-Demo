@@ -107,6 +107,7 @@
   body {
     background-color: var(--color-black);
     color: var(--color-text);
+    word-wrap: break-word;
   }
 
   #app {
