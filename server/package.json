@@ -1,6 +1,6 @@
 {
   "name": "trucksim-telemetry-demo-server",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "",
   "main": "index.js",
   "scripts": {
@@ -13,7 +13,7 @@
   "dependencies": {
     "express": "^4.17.1",
     "socket.io": "^2.2.0",
-    "trucksim-telemetry": "^0.7.0"
+    "trucksim-telemetry": "^0.8.0"
   },
   "devDependencies": {
     "@babel/core": "^7.5.5",

@@ -8,7 +8,9 @@
         <div><span>Plugin revision:</span><span>{{pluginVersion}}</span></div>
         <div><span>SDK active:</span><span>{{sdkActive ? "YES" : "NO"}}</span></div>        
         <div><span>Paused:</span><span>{{paused ? "YES" : "NO"}}</span></div>
-        <div><span>Uptime:</span><span>{{formatedTimestamp()}}</span></div>
+        <div><span>Uptime:</span><span>{{uptime}}</span></div>
+        <div><span>Simulation uptime:</span><span>{{simulationUptime}}</span></div>
+        <div><span>Render uptime:</span><span>{{renderUptime}}</span></div>
         <div><span>Game time:</span><span>{{formatedTime()}}</span></div>
         <div><span>Maximum trailers:</span><span>{{maxTrailerCount}}</span></div>
         <div><span>Scale:</span><span>{{scale}}</span></div>
@@ -29,6 +31,8 @@
 
     props: [
       "timestamp",
+      "simulationTimestamp",
+      "renderTimestamp",
       "time",
       "game",
       "paused",
@@ -40,14 +44,26 @@
       "scale"
     ],
 
+    computed: {
+      uptime: function() {
+        return this.formatTimestamp(this.timestamp.value)
+      },
+      simulationUptime: function() {
+        return this.formatTimestamp(this.simulationTimestamp.value)
+      },
+      renderUptime: function() {
+        return this.formatTimestamp(this.renderTimestamp.value)        
+      }
+    },
+
     methods: {
       double: function(num) {
         return  num < 10 ? `0${num}` : num
       },
-      formatedTimestamp: function() {
-        const hours = Math.floor(this.timestamp.value / 3600000)
-        const min   = Math.floor(this.timestamp.value % 3600000 / 60000)
-        const sec   = Math.floor(this.timestamp.value % 3600000 % 60000 / 1000)
+      formatTimestamp: function(value) {
+        const hours = Math.floor(value / 3600000)
+        const min   = Math.floor(value % 3600000 / 60000)
+        const sec   = Math.floor(value % 3600000 % 60000 / 1000)
 
         return `${this.double(hours)}:${this.double(min)}:${this.double(sec)}`
       },
