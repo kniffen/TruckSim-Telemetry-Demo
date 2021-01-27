@@ -1,13 +1,8 @@
 # TruckSim-Telemetry-Demo
 A demo app for [TruckSim-Telemetry](https://github.com/kniffen/TruckSim-Telemetry)
 
-## How to run it
-```
-cd server
-npm install --only=prod
-npm start
-```
+## Download
+You can download the windows executable [HERE](https://github.com/kniffen/TruckSim-Telemetry-Demo/releases)
 
-Open browser at http://localhost:3000/
-
+## Screenshot
 ![screenshot](screenshot.jpg)
