@@ -88,7 +88,7 @@
       
       this.telemetry.game.on(
         "pause",
-        (paused) => this.logIt("game", paused ? "Paused" : "Unpaused")
+        (isPaused) => this.logIt("game", isPaused ? "Paused" : "Unpaused")
       )
       
       this.telemetry.game.on(
@@ -103,22 +103,17 @@
       
       this.telemetry.game.on(
         "ferry",
-        (ferry) => this.logIt("game", `Ferry (${ferry.source.name} -> ${ferry.target.name})`)
+        (ferry) => this.logIt("game", `Ferry (${ferry.source.name} -> ${ferry.destination.name})`)
       )
 
       this.telemetry.game.on(
         "train",
-        (train) => this.logIt("game", `Train (${train.source.name} -> ${train.target.name})`)
-      )
-      
-      this.telemetry.game.on(
-        "refuel-payed",
-        () => this.logIt("game", `Refuel payed`)
+        (train) => this.logIt("game", `Train (${train.source.name} -> ${train.destination.name})`)
       )
       
       this.telemetry.game.on(
         "refuel-paid",
-        (data) => this.logIt("game", `Refuel paid, ${this.currency}${data.amount.toLocaleString()}`)
+        (data) => this.logIt("game", `Refuel paid, ${data.amount.toLocaleString()} liters`)
       )
 
       // Job events
@@ -139,23 +134,23 @@
       
       this.telemetry.job.on(
         "started",
-        (data) => this.logIt("job", "New job started")
+        (data) => this.logIt("job", `New job started, est Income: ${this.currency}${data.income.toLocaleString()}`)
       )
 
       // Truck events
       this.telemetry.truck.on(
         "cruise-control",
-        (enabled) => this.logIt("truck", `Cruise control ${enabled ? "Enabled" : "Disabled"}`)
+        (data) => this.logIt("truck", `Cruise control ${data.enabled ? "Enabled" : "Disabled"}`)
       )
       
       this.telemetry.truck.on(
         "cruise-control-increase",
-        (data) => this.logIt("truck", `Cruise control increased to ${data.kph}kph / ${data.mph}mph`)
+        (data) => this.logIt("truck", `Cruise control increased to ${data.cruiseControlSpeed.kph}kph / ${data.cruiseControlSpeed.mph}mph`)
       )
       
       this.telemetry.truck.on(
         "cruise-control-decrease",
-        (data) => this.logIt("truck", `Cruise control decreased to ${data.kph}kph / ${data.mph}mph`)
+        (data) => this.logIt("truck", `Cruise control decreased to ${data.cruiseControlSpeed.kph}kph / ${data.cruiseControlSpeed.mph}mph`)
       )
       
       this.telemetry.truck.on(
@@ -185,22 +180,17 @@
       
       this.telemetry.truck.on(
         "damage",
-        (data) => this.logIt("truck", `Truck damage increased ${(100 * data.chassis).toFixed()}%`)
+        (data) => this.logIt("truck", `Truck damage increased ${(100 * data.total).toFixed()}%`)
       )
       
       this.telemetry.truck.on(
         "refuel-started",
-        () => this.logIt("truck", "Truck refuel started")
-      )
-      
-      this.telemetry.truck.on(
-        "refuel",
-        (curr, prev) => this.logIt("truck", `Truck refuel from ${prev.amount} to ${curr.amount}`)
+        (data) => this.logIt("truck", `Truck refuel started, current: ${data.value} liters`)
       )
       
       this.telemetry.truck.on(
         "refuel-stopped",
-        () => this.logIt("truck", "Truck refuel stopped")
+        (data) => this.logIt("truck", `Truck refuel stopped, current: ${data.value} liters`)
       )
 
       // Trailer events
@@ -211,7 +201,7 @@
       
       this.telemetry.trailers.on(
         "damage",
-        (id, data) => this.logIt("trailers", `Trailer #${id+1} damage increased ${(100 * data.chassis).toFixed()}%`)
+        (id, data) => this.logIt("trailers", `Trailer #${id+1} damage increased ${(100 * data.total).toFixed()}%`)
       )
 
       // Navigation events

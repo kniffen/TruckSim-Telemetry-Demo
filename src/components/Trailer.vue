@@ -47,7 +47,7 @@
     },
 
     props: [
-      "brand",
+      "make",
       "model",
       "accessoryId",
       "bodyType",
@@ -65,7 +65,7 @@
     computed: {
       generalList: function() {
         return [
-          {name: "Brand",         value: this.brand.name || this.brand.id},
+          {name: "Make",          value: this.make.name || this.make.id},
           {name: "Model",         value: this.model.name || this.model.id},
           {name: "Accessory ID",  value: this.accessoryId},
           {name: "Body type",     value: this.bodyType},

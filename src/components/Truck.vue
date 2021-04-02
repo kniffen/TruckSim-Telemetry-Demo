@@ -122,7 +122,7 @@
     },
 
     props: [
-      "brand",
+      "make",
       "model",
       "licensePlate",
       "transmission",
@@ -148,7 +148,7 @@
     computed: {
       generalList: function() {
         return [
-          {name: "Brand",                value: this.brand.name},
+          {name: "Make",                 value: this.make.name},
           {name: "Model",                value: this.model.name},
           {name: "License plate",        value: `${this.licensePlate.value} (${this.licensePlate.country.name})`},
           {name: "Odometer",             value: `${Math.round(this.odometer).toLocaleString()} KM / ${Math.round(this.odometer * 0.6213712).toLocaleString()} Miles`},
