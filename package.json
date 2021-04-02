@@ -1,6 +1,6 @@
 {
   "name": "trucksim-telemetry-demo",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
@@ -13,7 +13,7 @@
   "main": "background.js",
   "dependencies": {
     "core-js": "^3.6.5",
-    "trucksim-telemetry": "^0.10.5",
+    "trucksim-telemetry": "^0.11.0",
     "vue": "^3.0.0"
   },
   "devDependencies": {
@@ -22,6 +22,7 @@
     "@vue/compiler-sfc": "^3.0.0",
     "electron": "^9.0.0",
     "electron-devtools-installer": "^3.1.0",
+    "node-loader": "^1.0.2",
     "node-sass": "^4.12.0",
     "sass-loader": "^8.0.2",
     "vue-cli-plugin-electron-builder": "~2.0.0-rc.5"
