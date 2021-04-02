@@ -6,6 +6,7 @@
           <div><b>Next rest stop:</b><div>{{formatedNextRestStop}}</div></div>
           <div><b>Distance:</b><div>{{(distance / 1000).toFixed().toLocaleString()}}km / {{(distance * 0.0006213712).toFixed()}}Miles</div></div>
           <div><b>ETA</b><div>{{formatedETA}}</div></div>
+          <div><b>Real ETA</b><div>{{formatedRealETA}}</div></div>
           <div><b>Speed</b><div>{{speed.kph}}kph / {{speed.mph}}mph</div></div>
         </div>
         <div class="speedLimitKPH">{{speedLimit.kph}}</div>        
@@ -44,7 +45,15 @@
         const date = new Date(this.gameTime + this.time)
         const days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"]
         
-        return `${days[date.getUTCDay()]} ${date.getUTCHours()}:${date.getUTCMinutes()} / ${eta}`
+        return `${days[date.getUTCDay()]} ${this.dd(date.getUTCHours())}:${this.dd(date.getUTCMinutes())} / ${eta}`
+      },
+
+      formatedRealETA: function() {
+        const eta = this.formatTime(this.time / 20)
+        const date = new Date(Date.now() + this.time / 20)
+        const days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"]
+        
+        return `${days[date.getDay()]} ${this.dd(date.getHours())}:${this.dd(date.getMinutes())} / ${eta}`
       }
     },
 
@@ -54,6 +63,9 @@
         const min   = Math.floor(ms % 3600000 / 60000)
         
         return `${hours}h ${min}min`
+      },
+      dd: function(num) {
+        return num < 10 ? '0'+num : num
       }
     }
   }
