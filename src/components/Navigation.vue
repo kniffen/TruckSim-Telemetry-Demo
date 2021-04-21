@@ -81,6 +81,7 @@
   .info > div:nth-child(1) {
     grid-row: 1 / 3;
     display: grid;
+    grid-gap: 1em;
   }
 
   .speedLimits {

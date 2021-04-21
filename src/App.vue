@@ -105,18 +105,11 @@ export default {
     box-sizing: border-box;
   }
 
-  html,
-  body,
-  #app {
-    height: 100%;
-  }
-
   body {
     background-color: var(--color-bg);
     color: var(--color-txt);
     font-family: Roboto;
     font-size: 16px;
-    overflow: hidden;
   }
 
   li {
@@ -125,13 +118,11 @@ export default {
 
   #dashboard {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: repeat(3, minmax(0, 1fr));
+    grid-template-columns: repeat(1, 100%);
     padding: 1em;
     grid-gap: 1em;
     border-top: .15em solid var(--color-green);
     justify-content: start;
-    height: 100%;
   }
 
   #waiting {
@@ -142,5 +133,17 @@ export default {
     align-content: center;
     grid-gap: 1em;
     border-top: .15em solid var(--color-red);
+  }
+
+  @media only screen and (min-width: 800px)  {
+    #dashboard {
+      grid-template-columns: repeat(2, minmax(0, 100%));
+    }
+  }
+
+  @media only screen and (min-width: 1440px)  {
+    #dashboard {
+      grid-template-columns: repeat(3, minmax(0, 100%));
+    }
   }
 </style>

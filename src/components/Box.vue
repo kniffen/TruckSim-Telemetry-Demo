@@ -41,6 +41,7 @@
     grid-gap: .25em;
     padding: 1em;
     grid-template-rows: auto auto minmax(0, 1fr);
+    min-height: 200px;
   }
 
   header,
@@ -69,7 +70,7 @@
   section {
     display: none;
     margin-top: 1em;
-    height: 100%;
+    min-height: 100%;
     max-height: calc(100% - 2em);
     overflow-y: auto;
   }
