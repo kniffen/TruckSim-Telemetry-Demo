@@ -32,7 +32,8 @@
       "time", 
       "speedLimit",
       "gameTime",
-      "speed"
+      "speed",
+      "scale"
     ],
 
     computed: {
@@ -49,7 +50,7 @@
       },
 
       formatedRealETA: function() {
-        const eta = this.formatTime(this.time / 20)
+        const eta = this.formatTime(this.time / this.scale)
         const date = new Date(Date.now() + this.time / 20)
         const days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"]
         

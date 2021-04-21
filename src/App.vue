@@ -6,7 +6,7 @@
     <Controls   id="controls"   v-bind="{...controls, transmission: truck.transmission}" />
     <Truck      id="truck"      v-bind="{...truck}" />
     <Trailer    id="trailer"    v-bind="{...trailer}" />
-    <Navigation id="navigation" v-bind="{...navigation, gameTime: game.time.unix, speed: truck.speed}"/>
+    <Navigation id="navigation" v-bind="{...navigation, gameTime: game.time.unix, speed: truck.speed, scale: game.scale}"/>
   </div>
   
   <div id="waiting" v-else>
