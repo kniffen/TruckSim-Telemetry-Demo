@@ -12,19 +12,19 @@
   },
   "main": "background.js",
   "dependencies": {
-    "core-js": "^3.10.2",
-    "trucksim-telemetry": "^0.13.1",
+    "core-js": "^3.13.0",
+    "trucksim-telemetry": "^0.15.0",
     "vue": "^3.0.11"
   },
   "devDependencies": {
-    "@vue/cli-plugin-babel": "^4.5.12",
-    "@vue/cli-service": "^4.5.12",
+    "@vue/cli-plugin-babel": "^4.5.13",
+    "@vue/cli-service": "^4.5.13",
     "@vue/compiler-sfc": "^3.0.11",
     "electron": "^9.4.4",
     "electron-devtools-installer": "^3.2.0",
     "node-loader": "^1.0.3",
     "node-sass": "^4.14.1",
     "sass-loader": "^8.0.2",
-    "vue-cli-plugin-electron-builder": "^2.0.0-rc.6"
+    "vue-cli-plugin-electron-builder": "^2.0.0"
   }
 }
