@@ -73,7 +73,7 @@ export default {
   },
 
   mounted: function() {
-    this.telemetry.watch({interval: 50}, this.update)
+    this.telemetry.watch({interval: 10}, this.update)
   },
 
   unmounted: function() {
