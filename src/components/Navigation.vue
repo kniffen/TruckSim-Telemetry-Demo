@@ -50,8 +50,8 @@
       },
 
       formatedRealETA: function() {
-        const eta = this.formatTime(this.time / this.scale)
-        const date = new Date(Date.now() + this.time / 20)
+        const eta = this.formatTime(this.time / 19)
+        const date = new Date(Date.now() + this.time / 19)
         const days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"]
         
         return `${days[date.getDay()]} ${this.dd(date.getHours())}:${this.dd(date.getMinutes())} / ${eta}`
