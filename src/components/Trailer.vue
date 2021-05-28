@@ -21,7 +21,7 @@
 
     <template v-slot:wheels>
       <div class="wheels">
-        <Wheel v-for="wheel, i in wheels" v-bind="{...wheel, id: i+1}"/>
+        <Wheel v-for="wheel, i in wheels" v-bind="{...wheel, id: i+1, damage: damage.wheels}"/>
       </div>
     </template>
 
