@@ -24,7 +24,7 @@
 
     props: [
       "game",
-      "deliveryTime",
+      "expectedDeliveryTimestamp",
       "cargo",
       "isSpecial",
       "destination",
@@ -58,7 +58,7 @@
       },
 
       formatedDeliveryTime: function() {
-        const date   = new Date(this.deliveryTime.unix)
+        const date   = new Date(this.expectedDeliveryTimestamp.unix)
         const double = num => num < 10 ? `0${num}` : num
         const days   = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"]
         
