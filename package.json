@@ -23,7 +23,7 @@
     "electron": "^9.4.4",
     "electron-devtools-installer": "^3.2.0",
     "node-loader": "^1.0.3",
-    "node-sass": "^4.14.1",
+    "node-sass": "^7.0.0",
     "sass-loader": "^8.0.2",
     "vue-cli-plugin-electron-builder": "^2.0.0"
   }
