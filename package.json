@@ -13,7 +13,7 @@
   "main": "background.js",
   "dependencies": {
     "core-js": "^3.13.0",
-    "trucksim-telemetry": "^0.15.0",
+    "trucksim-telemetry": "^0.16.0",
     "vue": "^3.0.11"
   },
   "devDependencies": {

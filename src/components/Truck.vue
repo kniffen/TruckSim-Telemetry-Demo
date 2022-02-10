@@ -12,6 +12,7 @@
     'brakes',
     'lights',
     'wheels',
+    'liftAxle',
     'damage',
   ]">
   
@@ -91,6 +92,7 @@
         <div><b>Beacon:</b><span              :class="`light lit-${['blank', 'yellow'][lights.beacon.enabled ? 1 : 0]}`"></span></div>
         <div><b>Brake:</b><span               :class="`light lit-${['blank', 'red'][lights.brake.enabled ? 1 : 0]}`"></span></div>
         <div><b>Reverse:</b><span             :class="`light lit-${['blank', 'yellow'][lights.reverse.enabled ? 1 : 0]}`"></span></div>
+        <div><b>Hazard:</b><span              :class="`light lit-${['blank', 'yellow'][lights.hazard.enabled ? 1 : 0]}`"></span></div>
       </div>
     </template>
 
@@ -98,6 +100,10 @@
       <div class="wheels">
         <Wheel v-for="wheel, i in wheels" v-bind="{...wheel, id: i+1}"/>
       </div>
+    </template>
+
+    <template v-slot:liftAxle>
+      <List :items="liftAxleList"></List>
     </template>
 
     <template v-slot:damage>
@@ -142,7 +148,8 @@
       "head",
       "hook",
       "chassis",
-      "differential"
+      "differential",
+      "liftAxle"
     ],
 
     computed: {
@@ -248,7 +255,8 @@
 
       differentialList: function() {
         return [
-          {name: "Ratio", value: this.differential.ratio},
+          {name: "Ratio",  value: this.differential.ratio},
+          {name: "Locked", value: this.differential.lock.enabled ? "Yes" : "NO"},
         ]
       },
 
@@ -260,6 +268,13 @@
           {name: "Motor brake enabled",   value: this.brakes.motor.enabled ? "YES" : "NO"},
           {name: "Retarder steps",        value: this.brakes.retarder.steps},
           {name: "Retarder level",        value: this.brakes.retarder.level},
+        ]
+      },
+
+      liftAxleList: function() {
+        return [
+          {name: "Enabled",   value: this.liftAxle.enabled ? "YES" : "NO"},
+          {name: "Indicator", value: this.liftAxle.indicator.enabled ? "ON" : "OFF"},
         ]
       },
 

@@ -3,7 +3,8 @@
     'general', 
     'chassis', 
     'hook', 
-    'wheels', 
+    'wheels',
+    'liftAxle', 
     'damage'
   ]">
   
@@ -23,6 +24,10 @@
       <div class="wheels">
         <Wheel v-for="wheel, i in wheels" v-bind="{...wheel, id: i+1, damage: damage.wheels}"/>
       </div>
+    </template>
+
+    <template v-slot:liftAxle>
+      <List :items="liftAxleList"></List>
     </template>
 
     <template v-slot:damage>
@@ -59,7 +64,8 @@
       "orientation",
       "acceleration",
       "hook",
-      "damage"
+      "damage",
+      "liftAxle"
     ],
 
     computed: {
@@ -103,6 +109,13 @@
           {name: "Position X", value: this.hook.position.X},
           {name: "Position Y", value: this.hook.position.Y},
           {name: "Position Z", value: this.hook.position.Z},
+        ]
+      },
+
+      liftAxleList: function() {
+        return [
+          {name: "Enabled",   value: this.liftAxle.enabled ? "YES" : "NO"},
+          {name: "Indicator", value: this.liftAxle.indicator.enabled ? "ON" : "OFF"},
         ]
       },
 
