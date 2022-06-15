@@ -93,12 +93,12 @@
       
       this.telemetry.game.on(
         "fine",
-        (fine) => this.logIt("game", `${fine.offence.name}, ${currency()}${fine.amount.toLocaleString()} fine`)
+        (fine) => this.logIt("game", `${fine.offence.name}, ${this.currency}${fine.amount.toLocaleString()} fine`)
       )
       
       this.telemetry.game.on(
         "tollgate",
-        (tollgate) => this.logIt("game", `Toll paid ${currency()}${tollgate.amount.toLocaleString()}`)
+        (tollgate) => this.logIt("game", `Toll paid ${this.currency}${tollgate.amount.toLocaleString()}`)
       )
       
       this.telemetry.game.on(
