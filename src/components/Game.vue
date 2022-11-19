@@ -65,9 +65,9 @@
       },
 
       formatTimestamp: function(value) {
-        const hours = Math.floor(value / 3600000)
-        const min   = Math.floor(value % 3600000 / 60000)
-        const sec   = Math.floor(value % 3600000 % 60000 / 1000)
+        const hours = Math.floor(value / 3.6e+9)
+        const min   = Math.floor(value % 3.6e+9 / 6e+7)
+        const sec   = Math.floor(value % 3.6e+9 % 6e+7 / 1000000)
 
         return `${this.doubleDigits(hours)}:${this.doubleDigits(min)}:${this.doubleDigits(sec)}`
       }
