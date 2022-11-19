@@ -22,6 +22,7 @@
       "timestamp",
       "simulationTimestamp",
       "renderTimestamp",
+      "multiplayerTimeOffset",
       "time",
       "game",
       "paused",
@@ -44,7 +45,8 @@
           {name: "Paused",            value: this.paused ? "YES" : "NO"},
           {name: "Uptime",            value: this.formatTimestamp(this.timestamp.value)},
           {name: "Simulation uptime", value: this.formatTimestamp(this.simulationTimestamp.value)},
-          {name: "Render uptime",     value: this.formatTimestamp(this.renderTimestamp.value) },
+          {name: "Render uptime",     value: this.formatTimestamp(this.renderTimestamp.value)},
+          {name: "MP time offset",    value: this.multiplayerTimeOffset.value},
           {name: "Game time",         value: this.gameTime},
           {name: "Maximum trailers",  value: this.maxTrailerCount},
           {name: "Scale",             value: this.scale}
