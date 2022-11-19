@@ -13,7 +13,7 @@
     'lights',
     'wheels',
     'liftAxle',
-    'damage',
+    'wear',
   ]">
   
     <template v-slot:general>
@@ -106,8 +106,8 @@
       <List :items="liftAxleList"></List>
     </template>
 
-    <template v-slot:damage>
-      <List :items="damageList"></List>
+    <template v-slot:wear>
+      <List :items="wearList"></List>
     </template>
   
   </Box>
@@ -166,7 +166,7 @@
 
       chassisList: function() {
         return [
-          {name: "Damage",                 value: `${Math.floor(100 * this.chassis.damage)}%`},
+          {name: "Wear",                   value: `${Math.floor(100 * this.chassis.damage)}%`},
           {name: "Position X",             value: this.position.X},
           {name: "Position Y",             value: this.position.Y},
           {name: "Position Z",             value: this.position.Z},
@@ -190,7 +190,7 @@
 
       cabinList: function() {
         return [
-          {name: "Damage",                     value: `${Math.floor(100 * this.cabin.damage)}%`},
+          {name: "Wear",                       value: `${Math.floor(100 * this.cabin.damage)}%`},
           {name: "Position X",                 value: this.cabin.position.X},
           {name: "Position Y",                 value: this.cabin.position.Y},
           {name: "Position Z",                 value: this.cabin.position.Z},
@@ -238,7 +238,7 @@
           {name: "Water Temperature", value: `${Math.round(this.engine.waterTemperature.value)}°C`},
           {name: "Battery",           value: `${Math.round(this.engine.batteryVoltage.value)} Volts`},
           {name: "RPM",               value: `${Math.round(this.engine.rpm.value)} / ${this.engine.rpm.max}`},
-          {name: "Damage",            value: `${Math.floor(100 * this.engine.damage)}%`},
+          {name: "Wear",              value: `${Math.floor(100 * this.engine.damage)}%`},
         ]
       },
 
@@ -247,7 +247,7 @@
           {name: "Forward gears",       value: this.transmission.forwardGears},
           {name: "Reverse gears",       value: this.transmission.reverseGears},
           {name: "Current gears",       value: `${this.transmission.gear.selected} (${this.transmission.gear.displayed})`},
-          {name: "Damage",              value: `${Math.floor(100 * this.transmission.damage)}%`},
+          {name: "Wear",                value: `${Math.floor(100 * this.transmission.damage)}%`},
           {name: "Forward gear ratios", value: this.transmission.gearRatiosForward.filter(ratio => ratio > 0)},
           {name: "Reverse gear ratios", value: this.transmission.gearRatiosReverse.filter(ratio => ratio < 0)},
         ]
@@ -278,7 +278,7 @@
         ]
       },
 
-      damageList: function() {
+      wearList: function() {
         return Object.keys(this.damage).map(key => ({
           name: key, value: `${Math.floor(100 * this.damage[key])}%`
         }))

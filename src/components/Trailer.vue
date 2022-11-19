@@ -5,7 +5,7 @@
     'hook', 
     'wheels',
     'liftAxle', 
-    'damage'
+    'wear'
   ]">
   
     <template v-slot:general>
@@ -30,8 +30,8 @@
       <List :items="liftAxleList"></List>
     </template>
 
-    <template v-slot:damage>
-      <List :items="damageList"></List>
+    <template v-slot:wear>
+      <List :items="wearList"></List>
     </template>
   
   </Box>
@@ -119,7 +119,7 @@
         ]
       },
 
-      damageList: function() {
+      wearList: function() {
          return Object.keys(this.damage).map(key => ({
           name: key, value: `${Math.floor(100 * this.damage[key])}%`
         }))
