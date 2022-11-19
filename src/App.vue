@@ -123,6 +123,7 @@ export default {
     grid-gap: 1em;
     border-top: .15em solid var(--color-green);
     justify-content: start;
+    height: 100vh;
   }
 
   #waiting {
