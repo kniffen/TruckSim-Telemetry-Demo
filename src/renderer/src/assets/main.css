@@ -1,0 +1,76 @@
+@import './base.css';
+
+#root {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  margin-bottom: 80px;
+  height: 100vh;
+}
+
+body {
+  display: flex;
+  overflow: hidden;
+  user-select: none;
+}
+
+body > * {
+  margin-inline: 1rem;
+}
+
+.nav {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 0.5rem;
+  margin-block-end: 1rem;
+}
+
+.nav a {
+  font-weight: 500;
+  text-decoration: none;
+  color: var(--ev-c-text-2);
+}
+
+.nav a.active {
+  color: var(--color-accent);
+}
+
+.box {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.truck-container {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  overflow-y: auto;
+  margin-block-end: 1rem;
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.list-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.25rem 0.5rem;
+  gap: 1rem;
+}
+
+.list-item:nth-child(odd) {
+  background-color: rgba(255, 255, 255, 0.04);
+}
+
+.list-item:nth-child(even) {
+  background-color: rgba(255, 255, 255, 0.02);
+}
+
+.list-item > *:first-child {
+  font-weight: 500;
+}
