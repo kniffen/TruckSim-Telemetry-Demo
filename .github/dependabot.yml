@@ -13,7 +13,7 @@ updates:
           - "*" # All actions
 
   # Dependencies
-  - package-ecosystem: "npm" # See documentation for possible values
+  - package-ecosystem: "npm" # pnpm uses npm ecosystem in dependabot
     directory: "/" # Location of package manifests
     target-branch: "master"
     schedule:
