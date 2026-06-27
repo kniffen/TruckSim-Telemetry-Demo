@@ -10,16 +10,20 @@ on:
 jobs:
   windows: 
     name: Windows
-    runs-on: windows-latest
+    runs-on: windows-2022
     steps:
       - uses: actions/checkout@v4
+      - name: Enable long paths on Windows
+        run: git config --system core.longpaths true
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '22'
+          node-version: '24'
           cache: 'npm'
+      - name: Add MSBuild to PATH
+        uses: microsoft/setup-msbuild@v2
       - name: Install dependencies
-        run: npm install
+        run: npm ci
       - name: Type check
         run: npm run typecheck
       - name: Lint check
